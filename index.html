@@ -1,116 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Math Test Review - Unit 4</title>
 <style>
-body {
-background-color: #d1f2eb; /* The light teal Poki background */
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-margin: 0;
-padding: 20 px;
-}
-
-/* Top Bar with Search */
-.header {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding-bottom: 20 px;
-border-bottom: 1 px solid rg ba (0,0,0,0.05);
-}
-
-.search-box input {
-border-radius: 20 px;
-border: none;
-padding: 10 px 20 px;
-width: 250 px;
-outline: none;
-box-shadow: 0 2 px 5 px rg ba 0,0,0,0.1);
-}
-
-.math-label {
-color: #555;
-font-size: 14 px;
-font-weight: bold;
-}
-
-/* The Poki-Style Grid */
-.game-grid {
-display: grid;
-grid-template-columns: repeat (auto-fill, minmax (140 px, 1 fr));
-gap: 15 px;
-padding-top: 20 px;
-}
-
-/* Individual Game Square */
-.game-card {
-background: white;
-border-radius: 18 px;
-overflow: hidden;
-transition: transform 0.2 s ease-in-out;
-aspect-ratio: 1 / 1;
-display: flex;
-box-shadow: 0 4 px 10 px rg ba (0,0,0,0.08);
-cursor: pointer;
-}
-
-.game-card:hover {
-transform: translateY (-5 px) scale (1.03);
-}
-
-.game-card img {
-width: 100 %;
-height: 100 %;
-object-fit: cover;
-}
-
-.game-card a {
-width: 100 %;
-height: 100 %;
-}
+  /* YOUR CSS GOES HERE */
+  body { background-color: black; margin: 0; color: white; font-family: sans-serif; }
+  .card { 
+    background: #1a1a1a; 
+    padding: 30px; 
+    border-radius: 15px; 
+    border-top: 8px solid #f06d06; 
+    margin: 20px;
+    text-align: center;
+  }
+  .card h1 { color: red !important; }
+  .card p { color: white; }
+  button { padding: 10px 20px; cursor: pointer; }
 </style>
 </head>
 <body>
 
-<div class="header">
-<div class="search-box">
-<input type="text" placeholder="Search study assets...">
-</div>
-<div class="math-label">Algebra II Review</div>
-</div>
+  <div class="card">
+    <h1>Math Study Project</h1>
+    <p>This is my math study project.</p>
+  </div>
 
-<div class="game-grid">
+  <div class="card">
+    <h1>Math Challenge</h1>
+    <p>Practice your speed!</p>
+    <button id="gameBtn" onclick="playGame()">Start Game</button>
+    <h2 id="scoreDisplay">Score: 0</h2>
+  </div>
 
-<div class="game-card">
-<a href="https://ozgames.io/slope/index.html⁠">
-<img src="https://play-lh.googleusercontent.com/978m8_Z6yT-3fW8m6P6mZzU6fU5pGz1_6nU5-8zN3W0⁠">
-</a>
-</div>
+  <script>
+    /* YOUR JS GOES HERE */
+    let score = 0;
+    function playGame() {
+      score++;
+      document.getElementById('scoreDisplay').innerHTML = "Score: " + score;
+    }
 
-<div class="game-card">
-<a href="#">
-<img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png⁠">
-</a>
-</div>
-
-<div class="card">
-    <h3>Game Title</h3>
-    <iframe 
-        src="https://ozgames.io/slope/index.html⁠" 
-        width="100%" 
-        height="500px" 
-        frameborder="0">
-    </iframe>
-</div> 
-
-<a href="#">
-<img src="https://via.placeholder.com/150/e74c3c/ffffff?text=Asset+3" alt="Review Link">
-</a>
-</div>
-
-</div>
-
+    // Secret Teacher-is-Coming Key (Press 'B')
+    document.addEventListener('keydown', function(e) {
+      if (e.key.toLowerCase() === 'b') {
+        document.body.innerHTML = "<h1>Mitosis Study Guide</h1><p>Prophase: Chromosomes condense...</p>";
+        document.body.style.color = "white";
+      }
+    });
+  </script>
 </body>
 </html>
