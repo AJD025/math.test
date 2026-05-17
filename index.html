@@ -50,41 +50,38 @@
         document.body.innerHTML = "<h1>Mitosis Study Guide</h1><p>Prophase: Chromosomes condense...</p>";
         document.body.style.color = "white";
       }
-    });
- <div style="text-align: center; color: white; font-family: sans-serif;">
+    <div style="text-align: center; color: white; font-family: sans-serif;">
     <h2 style="color: #ff4500;">Snake Arcade</h2>
     <p>Eat the red dots to grow!</p>
     <canvas id="snakeGame" width="300" height="300" style="border: 2px solid white; background-color: black;"></canvas>
-    <h3 id="scoreDisplay">Score: 0</h3>
+    <h2 id="scoreDisplay">Score: 0</h2>
 </div>
 
 <script>
 // 1. Setup variables
-let score = 0;
 const canvas = document.getElementById("snakeGame");
 const ctx = canvas.getContext("2d");
+let score = 0;
 let snake = [{x: 10, y: 10}];
 let food = {x: 5, y: 5};
-let dx = 1; // Starts moving right immediately
+let dx = 1; 
 let dy = 0;
 
 // 2. The Game Loop
 function draw() {
-    // Move the head
     let head = {x: snake[0].x + dx, y: snake[0].y + dy};
     
-    // Check if snake hit walls (Game Over reset)
+    // Wall Collision - Reset Game
     if (head.x < 0 || head.x >= 15 || head.y < 0 || head.y >= 15) {
         snake = [{x: 10, y: 10}];
-        score = 0;
-        dx = 1; dy = 0;
+        dx = 1; dy = 0; score = 0;
         document.getElementById('scoreDisplay').innerHTML = "Score: 0";
         return;
     }
 
     snake.unshift(head);
 
-    // Check if snake ate food
+    // Food Collision
     if (head.x === food.x && head.y === food.y) {
         score++;
         document.getElementById('scoreDisplay').innerHTML = "Score: " + score;
@@ -93,13 +90,15 @@ function draw() {
         snake.pop();
     }
 
-    // Draw everything
+    // Draw Background
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, 300, 300);
     
+    // Draw Food
     ctx.fillStyle = "red";
     ctx.fillRect(food.x * 20, food.y * 20, 18, 18);
     
+    // Draw Snake
     ctx.fillStyle = "white";
     snake.forEach(p => ctx.fillRect(p.x * 20, p.y * 20, 18, 18));
 }
@@ -112,6 +111,8 @@ window.addEventListener("keydown", e => {
     if (e.key === "ArrowRight" && dx === 0) { dx = 1; dy = 0; }
 });
 
-// 4. Start the game loop automatically
+// 4. Start
 setInterval(draw, 150);
 </script>
+</body>
+</html>
