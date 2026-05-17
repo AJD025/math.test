@@ -51,7 +51,7 @@
         document.body.style.color = "white";
       }
     });
-  </script> let score = 0;
+  let score = 0;
 function playGame() {
   score++;
   document.getElementById('scoreDisplay').innerHTML = "Score: " + score;
@@ -83,7 +83,7 @@ window.addEventListener("keydown", e => {
 
   // THE SECRET "BYPASS": Press 'B' for Biology
   if (e.key.toLowerCase() === 'b') {
-    document.body.innerHTML = "<div class='card'><h1>Biology Study Guide</h1><p><b>Mitosis:</b> Cell division stages.</p><ul><li>Prophase</li><li>Metaphase</li><li>Anaphase</li><li>Telophase</li></ul></div>";
+  
     document.body.style.background = "black";
   }
 });
